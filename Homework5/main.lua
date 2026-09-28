@@ -30,6 +30,13 @@ function draw()
     line(width/-3,height/-3,width,height)
     line(width/600,height,width,height/-600)
 
+    -- Sunset
     fill(255,50,70)
-    quad(width/-3,height/3,width/-2,height/2, width/-4,height/4,width/-3.5,height/3.5)
+    circle(width/2,height/2,height/2)
+    fill(255,115,80)
+    circle(width/2,height/2,height/3)
+
+    -- Buildings
+    fill(255,50,70)
+    quad(width*.2,height*.2,width*.3,height*.3, width*.3,height*.7,width*.2,height*.8)
 end
