@@ -18,6 +18,10 @@ end
 
 -- Draw loop
 function draw()
-    background(120,120,135)
+    -- Background Color
+    background(6,20,37)
 
+    -- Cursor Location
+    fill(255)
+    text("X: "..mouseX.." Y: "..mouseY, mouseX+5, mouseY+30)
 end
