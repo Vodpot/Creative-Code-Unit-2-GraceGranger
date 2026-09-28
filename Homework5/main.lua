@@ -24,4 +24,12 @@ function draw()
     -- Cursor Location
     fill(255)
     text("X: "..mouseX.." Y: "..mouseY, mouseX+5, mouseY+30)
+
+    -- Vanishing point Lines
+    stroke(255)
+    line(width/-3,height/-3,width,height)
+    line(width/600,height,width,height/-600)
+
+    fill(255,50,70)
+    quad(width/-3,height/3,width/-2,height/2, width/-4,height/4,width/-3.5,height/3.5)
 end
