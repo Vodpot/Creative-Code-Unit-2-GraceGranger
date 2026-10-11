@@ -9,8 +9,6 @@ function setup()
   -- Location references for the 9 possible shape spots
   xList = {'55','170','290'}
   yList = {'75','255','420'}
-  --Color List for the 'darts'
-  xColor = {'0, 120, 191','255, 72, 176'}
   -- Define units
   angleMode(DEGREES)
   end
@@ -68,18 +66,25 @@ function draw()
    circle(535,250,150)
    fill(172, 147, 110)
    circle(535,250,135)
+     -- Centering Lines
+  strokeWeight(3)
+  stroke(0)
+  centerx = 535
+  centery = 250
+  radius = 125
+    for a = 0, 340, 20 do
+  x = centerx + cos(a) * radius
+  y = centery + sin(a) * radius
+    line(centerx,centery,x,y)
+  end
+  -- Bullseye
    fill(64, 112, 96)
    circle(535,250,35)
    fill(255, 102, 94)
    circle(535,250,20)
    noFill()
-   
-    -- Centering Lines
-  strokeWeight(5)
-  stroke(0)
   
-  
---Darts
+-- Darts
 for i = 1, 6 do
   strokeWeight(1)
   stroke(0)
