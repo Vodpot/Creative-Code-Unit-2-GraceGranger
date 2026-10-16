@@ -1,103 +1,51 @@
 -- Grace Granger
--- Homework 7
+-- Homework 8
 
 require("L5")
 
 function setup()
-  size(700, 500)
-  windowTitle("Grace Granger Homework 7")
-  -- Location references for the 9 possible shape spots
-  xList = {'55','170','290'}
-  yList = {'75','255','420'}
-  -- Define units
-  angleMode(DEGREES)
+  size(800, 400)
+  windowTitle("Grace Granger Homework 8 - Haiku Generator")
+
+  -- Starts the sketch
+  function mousePressed()
+
+  -- Defines Haiku line 1
+  function writeLine1()
+    fill(10,10,40)
+    textSize(45)
+    textAlign(LEFT,TOP)
+    text(random({"The wind is blowing", "The air is pleasant", "Leaves are falling", "Snowflakes drift through clouds", "Rays from the Sun shine"}),30,30)
   end
 
+  -- Defines Haiku line 2
+   function writeLine2()
+    textAlign (LEFT,CENTER)
+    text(random({"The sky breathes out the fall air","Spring is upon the valley", "Heat permeates foliage", "Frost gathers along the ground", "Light travels to the tree leaves"}),30,180)
+   end
 
-function draw()
-  background(255)
-  --Line thickness and Color
-  strokeWeight(8)
-  stroke(0)
-
--- Tic Tac Toe Grid
-  for lineX = 115, 300, 115 do
-    line(lineX, 5, lineX, 495)
+  -- Defines Haiku line 3
+   function writeLine3()
+    textAlign (LEFT,BOTTOM)
+    text(random({"Despite the dead life", "Even with the cold", "Summer is coming", "Life sleeps through the wait", "Time continues though"}),30,330)
   end
-
-  for lineY = 155,500,200 do
-    line(5, lineY, 345, lineY)
-  end
-
--- Placing Os and Xs
-  strokeWeight(10)
-  noFill()
-  -- Determines there is only 9 total shapes
-    for x = 1, 3 do
-    for y = 1, 3 do
-  -- Determines Color of the shape that will be placed for each of the 9 locations
-  stroke(random({'#0078BF','#F15060', '#FF48B0','#FF6C2F','#FFE800'}))
-    shapeType = random{'circle', 'Ex'}
-  -- Places Os
-    if shapeType == 'circle' then
-  -- Os Size
-  circle(xList[x], yList[y], 60)
-  --Places Xs
-    elseif shapeType == 'Ex' then
-  -- Xs size
-  line (xList[x]-30,yList[y]-30,xList[x]+30,yList[y]+30)
-  line (xList[x]-30,yList[y]+30,xList[x]+30,yList[y]-30)
+  
+  -- Background's random and Array
+   function chooseBackground()
+    background(random({'#F54927', '#B3D7E6', '#B5EDB2', '#FFF959','#CFC5E8','#E6B17C','#9E1B1B','#859443'}))
     end
   end
-    noLoop()
-  end
-  -- Right Side's DartBoard
+  noLoop()
+end
 
-  -- Rings
-   strokeWeight(1)
-   stroke(0)
-   fill(0)
-   circle(535,250,270)
-   fill(64, 112, 96)
-   circle(535,250,250)
-   fill(172, 147, 110)
-   circle(535,250,230)
-   fill(255, 102, 94)
-   circle(535,250,150)
-   fill(172, 147, 110)
-   circle(535,250,135)
-     -- Centering Lines
-  strokeWeight(3)
-  stroke(0)
-  centerx = 535
-  centery = 250
-  radius = 125
-    for a = 0, 340, 20 do
-  x = centerx + cos(a) * radius
-  y = centery + sin(a) * radius
-    line(centerx,centery,x,y)
+  -- Generates the Haiku
+  function draw()
+    chooseBackground()
+    writeLine1()
+    writeLine2()
+    writeLine3()
   end
-  -- Bullseye
-   fill(64, 112, 96)
-   circle(535,250,35)
-   fill(255, 102, 94)
-   circle(535,250,20)
-   noFill()
-  
--- Darts
-for i = 1, 6 do
-  strokeWeight(1)
-  stroke(0)
-    x = random(370,680)
-    y = random(100,400)
-    size = 10
-    fill(random({'#FF48B0','#0078BF'}))
-    circle(x, y, size)
-  end
-
-   -- Click to get a new iteration
-  function mouseClicked ()
+  -- Redraw on click
+  function mouseClicked()
     redraw()
   end
-  
-end
